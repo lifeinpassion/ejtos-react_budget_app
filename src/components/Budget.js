@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import Symbol from './Symbol';
 
-const Budget = () => {
+const Budget = ({currency}) => {
 	const { budget,dispatch,expenses } = useContext(AppContext);
 
 	const changeBudget = (val)=>{
@@ -22,7 +23,7 @@ const Budget = () => {
 	
 	return (
 		<div className='alert alert-secondary'>
-			<span>Budge: £
+			<span>Budget:<Symbol currency={currency}/>
             <input type="number" step="10" value={budget} onInput={(event)=>changeBudget(event.target.value)}></input>
             </span>
 		</div>
